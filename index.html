@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fab fa-spotify"></i> Spotify
+            </div>
+            <div class="nav-links">
+                <div class="nav-item active" data-target="home-view" id="nav-home">
+                    <i class="fas fa-home"></i> <span>Home</span>
+                </div>
+                <div class="nav-item" data-target="search-view" id="nav-search">
+                    <i class="fas fa-search"></i> <span>Search</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-book-open"></i> <span>Your Library</span>
+                </div>
+            </div>
+            <div class="playlists">
+                <div class="playlists-header">
+                    <i class="fas fa-plus"></i>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="playlists-filters">
+                    <span class="filter-chip">Playlists</span>
+                    <span class="filter-chip">Artists</span>
+                </div>
+                <ul id="sidebar-playlists">
+                    <li>
+                        <img src="assets/laroi_cover.png" alt="Playlist" class="playlist-icon">
+                        <div class="playlist-info">
+                            <h4>Liked Songs</h4>
+                            <p>Playlist • 120 songs</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="playlist-icon"
+                            style="background: #282828; display:flex; justify-content:center; align-items:center;">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <h4>Coding Mix</h4>
+                            <p>Playlist • Spotify</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="fav-section" style="margin-top: 20px;">
+                    <h3 style="font-size: 14px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 10px; padding-left: 10px;">Fav Ones</h3>
+                    <ul id="fav-songs-list">
+                        <!-- Dynamically added favorited songs will appear here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content">
+            <div class="top-nav">
+                <div class="nav-arrows">
+                    <button class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="search-bar-header" id="search-bar-header" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="What do you want to listen to?">
+                </div>
+                <div class="user-profile">
+                    <button class="upgrade-btn">Explore Premium</button>
+                    <button class="install-btn"><i class="far fa-arrow-alt-circle-down"></i> Install App</button>
+                    <div class="profile-icon"><i class="fas fa-user"></i></div>
+                </div>
+            </div>
+
+            <!-- Home View -->
+            <div id="home-view" class="view-section active">
+                <div class="content-padding">
+                    <h2>Good evening</h2>
+                    <div class="recent-grid">
+                        <div class="recent-item" data-src="assets/song.webm" data-title="GIRLS"
+                            data-artist="The Kid LAROI" data-cover="assets/laroi_cover.png">
+                            <img src="assets/laroi_cover.png" alt="Cover">
+                            <span>GIRLS</span>
+                            <button class="play-recent-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="recent-item" data-src="assets/bloodline.webm" data-title="bloodline"
+                            data-artist="Ariana Grande" data-cover="assets/bloodline_cover.png">
+                            <img src="assets/bloodline_cover.png" alt="Cover"
+                                style="width: 60px; height: 60px; object-fit: cover;">
+                            <span>bloodline</span>
+                            <button class="play-recent-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="recent-item" data-src="assets/be_alright.webm" data-title="Be Alright"
+                            data-artist="Dean Lewis" data-cover="assets/be_alright_cover.png">
+                            <img src="assets/be_alright_cover.png" alt="Cover"
+                                style="width: 60px; height: 60px; object-fit: cover;">
+                            <span>Be Alright</span>
+                            <button class="play-recent-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="recent-item">
+                            <div class="recent-img-placeholder"
+                                style="background: linear-gradient(135deg, #0a84f5, #c4e4ef);"></div>
+                            <span>Chill Hits</span>
+                            <button class="play-recent-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+
+                    <h2>Made For You</h2>
+                    <div class="cards-grid">
+                        <div class="card" data-src="assets/song.webm" data-title="GIRLS" data-artist="The Kid LAROI"
+                            data-cover="assets/laroi_cover.png">
+                            <img src="assets/laroi_cover.png" alt="Mix">
+                            <h4>The Kid LAROI Mix</h4>
+                            <p>Catch up on the latest and greatest...</p>
+                            <button class="play-card-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="card" data-src="assets/bloodline.webm" data-title="bloodline"
+                            data-artist="Ariana Grande" data-cover="assets/bloodline_cover.png">
+                            <img src="assets/bloodline_cover.png" alt="Mix">
+                            <h4>Ariana Grande Mix</h4>
+                            <p>New music tailored for you. Updated every Monday.</p>
+                            <button class="play-card-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="card" data-src="assets/be_alright.webm" data-title="Be Alright"
+                            data-artist="Dean Lewis" data-cover="assets/be_alright_cover.png">
+                            <img src="assets/be_alright_cover.png" alt="Mix">
+                            <h4>Dean Lewis Radio</h4>
+                            <p>Catch up on the latest releases from artists you follow.</p>
+                            <button class="play-card-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search View -->
+            <div id="search-view" class="view-section" style="display: none;">
+                <div class="content-padding">
+                    <h2>Browse all</h2>
+                    <div class="browse-grid">
+                        <div class="category-card" style="background-color: #E13300;">
+                            <h3>Podcasts</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #1E3264;">
+                            <h3>Made For You</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #E8115B;">
+                            <h3>New Releases</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #8D67AB;">
+                            <h3>Pop</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #7358FF;">
+                            <h3>Hip-Hop</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #BA5D07;">
+                            <h3>Rock</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #F59B23;">
+                            <h3>Latin</h3>
+                        </div>
+                        <div class="category-card" style="background-color: #006450;">
+                            <h3>Charts</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playback Bar -->
+    <div class="player">
+        <div class="song-info">
+            <img src="assets/laroi_cover.png" alt="Song Cover" class="player-cover">
+            <div class="song-details">
+                <div class="song-name">GIRLS</div>
+                <div class="artist-name">The Kid LAROI</div>
+            </div>
+            <i class="far fa-heart heart-icon"></i>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <i class="fas fa-random control-icon"></i>
+                <i class="fas fa-step-backward control-icon" id="prev-btn"></i>
+                <div class="play-pause-btn" id="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+                <i class="fas fa-step-forward control-icon" id="next-btn"></i>
+                <i class="fas fa-sync-alt control-icon"></i>
+            </div>
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <div class="progress-bar-bg" id="progress-container">
+                    <div class="progress" id="progress">
+                        <div class="progress-handle"></div>
+                    </div>
+                </div>
+                <span id="total-time">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-controls">
+            <i class="fas fa-microphone control-icon"></i>
+            <i class="fas fa-bars control-icon"></i>
+            <i class="fas fa-desktop control-icon"></i>
+            <i class="fas fa-volume-up control-icon" id="volume-icon"></i>
+            <div class="volume-bar-bg" id="volume-container">
+                <div class="volume-level" id="volume-level">
+                    <div class="volume-handle"></div>
+                </div>
+            </div>
+            <i class="fas fa-expand-alt control-icon"></i>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="audio-player" src="assets/song.webm"></audio>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
